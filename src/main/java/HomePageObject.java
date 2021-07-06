@@ -23,8 +23,19 @@ public class HomePageObject extends PageObject {
     @FindBy(xpath ="//div[@id=\"custom-header\"]//a[@title='Store']")
     private WebElement storePageButton;
 
+
+    @FindBy(xpath = "//a[contains(@class,\"js--pearson-cookie-policy-accept-continue\")]")
+    private WebElement closeCookieButton;
+
+
     public HomePageObject(WebDriver driver) {
         super(driver);
+    }
+
+    public void closeCookieNotification(){
+        if(closeCookieButton.isDisplayed()) {
+            closeCookieButton.click();
+        }
     }
 
     public void closePopUps() {

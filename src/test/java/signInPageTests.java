@@ -20,6 +20,7 @@ public class signInPageTests {
         Thread.sleep(1000);
 
         homePageObject.closePopUps();
+        homePageObject.closeCookieNotification();
         homePageObject.clickOnSignInLink();
         signInPageObject = new SignInPageObject(driver);
 
@@ -59,6 +60,14 @@ public class signInPageTests {
         signInPageObject.fillEmailAddress();
         String emailText = signInPageObject.getEmailFieldText();
         Assert.assertEquals("Email field is filled with the correct adress","random@email.com", emailText);
+    }
+
+
+    @Test
+    public void signInFunction(){
+        signInPageObject.fillPasswordField();
+        signInPageObject.fillUsernameField();
+        signInPageObject.clickOnSignInButton();
     }
 
     @Test

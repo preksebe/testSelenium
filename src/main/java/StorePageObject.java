@@ -22,20 +22,28 @@ public class StorePageObject extends PageObject {
     @FindBy(xpath = "//a[text()=\"Academic Learning\"]/following-sibling::span")
     private WebElement academicLearningNrOfProducts;
 
-    @FindBy(xpath = "//button[contains(@class,\"js-cookie-notification-accept\")]")
-    private WebElement closeCookieButton;
+    @FindBy(xpath = "//button[@id=\"contextSwitchFormSubmit\"]")
+    private WebElement formContinueButton;
+
+
+
+    public StorePageObject(WebDriver driver) {
+        super(driver);
+    }
 
     public WebElement getAbasButton(){
         return abasProductLink;
     }
-    public void closeCookieNotification(){
-        closeCookieButton.click();
-    }
-    public void clickOnABASLink(){
-        abasProductLink.click();
+
+    public void clickOnFormContinueButton(){
+        formContinueButton.click();
     }
 
-    public StorePageObject(WebDriver driver) {
-        super(driver);
+    public WebElement getFormContinueButton(){
+        return formContinueButton;
+    }
+
+    public void clickOnABASLink(){
+        abasProductLink.click();
     }
 }

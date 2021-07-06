@@ -19,9 +19,20 @@ public class CartPageObject extends PageObject {
     @FindBy(xpath = "//div[@class=\"js-cart-totals row\"]//div[contains(@class,\"notice\")]/em")
     private WebElement itemsSubtotalNoticeText;
 
+    @FindBy(xpath = "//button [contains(@class,\"btn--continue-checkout\")]")
+    private WebElement checkoutButton;
+
+
 
     public CartPageObject(WebDriver driver) {
         super(driver);
     }
 
+    public void clickOnCheckoutButton(){
+        checkoutButton.click();
+    }
+
+    public WebElement getCheckoutButton(){
+        return checkoutButton;
+    }
 }

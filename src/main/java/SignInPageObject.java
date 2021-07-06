@@ -32,6 +32,15 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//div[contains(@class,\"create-account-holder\")]//button")
     private WebElement createAccountSubmitButton;
 
+    @FindBy(xpath = "//input[@id='username']")
+    private WebElement usernameField;
+
+    @FindBy(xpath="//input[@id=\'password\']")
+    private WebElement passwordField;
+
+    @FindBy(xpath="//div[contains(@class,\"sign-in-holder\")]//button")
+    private WebElement signInButton;
+
 
     public SignInPageObject(WebDriver driver) {
         super(driver);
@@ -48,6 +57,17 @@ public class SignInPageObject extends PageObject {
     public void fillEmailAddress() {
         emailAddressRegisterInput.sendKeys("random@email.com");
 
+    }
+    public void fillUsernameField(){
+        usernameField.sendKeys("vladut.antal@youngculture.com");
+    }
+
+    public void clickOnSignInButton(){
+        signInButton.click();
+    }
+
+    public void fillPasswordField(){
+        passwordField.sendKeys("Francisc1234");
     }
 
     public String getEmailFieldText() {

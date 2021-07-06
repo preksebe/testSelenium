@@ -36,13 +36,20 @@ public class StorePageObject extends PageObject {
     }
 
     public void clickOnFormContinueButton(){
-        formContinueButton.click();
+        if(formContinueButton.isDisplayed()) {
+            formContinueButton.click();
+        }
     }
 
-    public WebElement getFormContinueButton(){
-        return formContinueButton;
-    }
+    public WebElement getFormContinueButton() {
+            return formContinueButton;
 
+    }
+    public void scrollToFormButton(WebDriver driver, ScrollHelper scrollHelper){
+        if(formContinueButton.isDisplayed()){
+            scrollHelper.ScrollHorizontally(driver,formContinueButton);
+        }
+    }
     public void clickOnABASLink(){
         abasProductLink.click();
     }

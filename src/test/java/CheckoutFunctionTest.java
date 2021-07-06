@@ -32,6 +32,7 @@ public class CheckoutFunctionTest {
 
             scrollHelper = new ScrollHelper();
 
+            Thread.sleep(1000);
         }
         @Test
         public void checkAddToCardFunction() throws InterruptedException {
@@ -56,10 +57,11 @@ public class CheckoutFunctionTest {
             signInPageObject.fillUsernameField();
             signInPageObject.clickOnSignInButton();
             Thread.sleep(1000);
+
             //add product to cart
             homePageObject.clickOnStoreButton();
             Thread.sleep(500);
-            scrollHelper.ScrollHorizontally(driver, storePageObject.getFormContinueButton());
+            storePageObject.scrollToFormButton(driver,scrollHelper);
             Thread.sleep(500);
             storePageObject.clickOnFormContinueButton();
             scrollHelper.ScrollHorizontally(driver,storePageObject.getAbasButton());
@@ -71,9 +73,16 @@ public class CheckoutFunctionTest {
             abasProductPageObject.clickOnAddtoCartBtn();
             Thread.sleep(2000);
             abasProductPageObject.clickOnViewCartBtn();
+
             //go to checkOut
             scrollHelper.ScrollHorizontally(driver, cartPageObject.getCheckoutButton());
             cartPageObject.clickOnCheckoutButton();
+            Thread.sleep(500);
+            //select Account and continue to checkout address field
+            scrollHelper.ScrollHorizontally(driver, cartPageObject.getAccountSelectorLabel());
+            cartPageObject.clickOnAccountSelectorLabel();
+            scrollHelper.ScrollHorizontally(driver, cartPageObject.getContinueCheckoutButton());
+            cartPageObject.clickOnContinueCheckout();
         }
 
         @After

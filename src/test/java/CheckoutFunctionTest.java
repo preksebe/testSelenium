@@ -12,6 +12,8 @@ public class CheckoutFunctionTest {
         protected static StorePageObject storePageObject;
         protected static ScrollHelper scrollHelper;
         protected static CartPageObject cartPageObject;
+        protected static CheckoutPageObject checkoutPageObject;
+
 
         @Before
         public void setUp() throws InterruptedException {
@@ -29,6 +31,7 @@ public class CheckoutFunctionTest {
             abasProductPageObject= new AbasProductPageObject(driver);
             signInPageObject= new SignInPageObject(driver);
             cartPageObject=new CartPageObject(driver);
+            checkoutPageObject= new CheckoutPageObject(driver);
 
             scrollHelper = new ScrollHelper();
 
@@ -60,9 +63,8 @@ public class CheckoutFunctionTest {
 
             //add product to cart
             homePageObject.clickOnStoreButton();
-            Thread.sleep(500);
-            storePageObject.scrollToFormButton(driver,scrollHelper);
-            Thread.sleep(500);
+            Thread.sleep(2000);
+            Thread.sleep(2000);
             storePageObject.clickOnFormContinueButton();
             scrollHelper.ScrollHorizontally(driver,storePageObject.getAbasButton());
             storePageObject.clickOnABASLink();
@@ -78,11 +80,54 @@ public class CheckoutFunctionTest {
             scrollHelper.ScrollHorizontally(driver, cartPageObject.getCheckoutButton());
             cartPageObject.clickOnCheckoutButton();
             Thread.sleep(500);
+            System.out.println("Nu mai las laptopul deblocat niciodata");
             //select Account and continue to checkout address field
             scrollHelper.ScrollHorizontally(driver, cartPageObject.getAccountSelectorLabel());
             cartPageObject.clickOnAccountSelectorLabel();
             scrollHelper.ScrollHorizontally(driver, cartPageObject.getContinueCheckoutButton());
             cartPageObject.clickOnContinueCheckout();
+
+            //fill checkout info
+            Thread.sleep(500);
+            checkoutPageObject.selectCountryDropdown();
+            Thread.sleep(500);
+            checkoutPageObject.selectTitleDropdown();
+            checkoutPageObject.fillFirstName();
+            checkoutPageObject.fillLastName();
+            checkoutPageObject.fillStreetInput();
+            checkoutPageObject.fillCity();
+            scrollHelper.ScrollHorizontally(driver, checkoutPageObject.getStateDropdown());
+            Thread.sleep(500);
+
+            checkoutPageObject.selectState();
+
+            scrollHelper.ScrollHorizontally(driver, checkoutPageObject.getZipInput());
+
+            checkoutPageObject.fillZipCode();
+
+            scrollHelper.ScrollHorizontally(driver, checkoutPageObject.getAddressSubmitButton());
+            checkoutPageObject.clickOnAddressSubmit();
+
+            Thread.sleep(1000);
+
+            checkoutPageObject.clickOnShippmentSubmit();
+
+            Thread.sleep(1000);
+
+            checkoutPageObject.fillCardNumber();
+            checkoutPageObject.selectExpiryDate();
+            checkoutPageObject.selectExpiryYear();
+            checkoutPageObject.fillSecurityCode();
+
+            scrollHelper.ScrollHorizontally(driver, checkoutPageObject.getTermsAndCondCheckbox());
+
+            Thread.sleep(500);
+
+            checkoutPageObject.checkTermsAndConditions();
+
+
+
+
         }
 
         @After

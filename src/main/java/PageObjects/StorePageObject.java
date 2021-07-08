@@ -35,8 +35,10 @@ public class StorePageObject extends PageObject {
         return abasProductLink;
     }
 
-    public void clickOnFormContinueButton(){
-        if(formContinueButton.isDisplayed()) {
+    public void clickOnFormContinueButton() throws InterruptedException {
+
+        Thread.sleep(1000);
+        if(formContinueButton!= null && formContinueButton.isDisplayed()) {
             formContinueButton.click();
         }
     }
@@ -45,10 +47,10 @@ public class StorePageObject extends PageObject {
             return formContinueButton;
 
     }
-    public void scrollToFormButton(WebDriver driver, ScrollHelper scrollHelper){
-        if(formContinueButton.isDisplayed()){
+    public void scrollToFormButton(WebDriver driver, ScrollHelper scrollHelper) throws InterruptedException {
+        Thread.sleep(1000);
             scrollHelper.ScrollHorizontally(driver,formContinueButton);
-        }
+
     }
     public void clickOnABASLink(){
         abasProductLink.click();

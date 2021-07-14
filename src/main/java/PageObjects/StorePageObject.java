@@ -1,3 +1,6 @@
+package PageObjects;
+
+import helpers.ScrollHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,8 +38,8 @@ public class StorePageObject extends PageObject {
         return abasProductLink;
     }
 
-    public void clickOnFormContinueButton() throws InterruptedException {
-
+    public void clickOnFormContinueButton(WebDriver driver, ScrollHelper scrollHelper) throws InterruptedException {
+        scrollHelper.ScrollHorizontally(driver,formContinueButton);
         Thread.sleep(1000);
         if(formContinueButton!= null && formContinueButton.isDisplayed()) {
             formContinueButton.click();
@@ -49,7 +52,7 @@ public class StorePageObject extends PageObject {
     }
     public void scrollToFormButton(WebDriver driver, ScrollHelper scrollHelper) throws InterruptedException {
         Thread.sleep(1000);
-            scrollHelper.ScrollHorizontally(driver,formContinueButton);
+        scrollHelper.ScrollHorizontally(driver,formContinueButton);
 
     }
     public void clickOnABASLink(){

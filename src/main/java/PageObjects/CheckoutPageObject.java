@@ -1,3 +1,5 @@
+package PageObjects;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -6,6 +8,9 @@ public class CheckoutPageObject extends PageObject{
 
     @FindBy(xpath = "//select[@id=\"address.country\"]")
     private WebElement countryDropdown;
+
+    @FindBy(xpath = "//input[@id=\"addNewAddress\"]/following-sibling::span")
+    private WebElement addNewAddressRadioBtn;
 
     @FindBy(xpath = "//select[@id=\"address.country\"]//option[@value=\"US\"]")
     private WebElement countryDropdownUS;
@@ -64,15 +69,22 @@ public class CheckoutPageObject extends PageObject{
     @FindBy(xpath="//input[@id=\"Terms1\"]/following-sibling::span[@class=\"c-checkbox__check\"]")
     private WebElement termsAndCondCheckbox;
 
+    @FindBy(xpath="//button[@id=\"placeOrder\"]")
+    private WebElement placeOrderButton;
 
 
     public CheckoutPageObject(WebDriver driver) {
         super(driver);
     }
 
+
     public void fillStreetInput(){
         streetAddressInput.clear();
         streetAddressInput.sendKeys("801 Tom Martin Dr. Birmingham, AL 35211");
+    }
+
+    public void checkAddNewAddresRadioBtn(){
+        addNewAddressRadioBtn.click();
     }
 
     public void fillCity(){
@@ -89,6 +101,10 @@ public class CheckoutPageObject extends PageObject{
     public void selectCountryDropdown(){
         countryDropdown.click();
         countryDropdownUS.click();
+    }
+
+    public boolean isButtonEnabled(){
+        return placeOrderButton.isEnabled();
     }
 
     public void selectTitleDropdown(){

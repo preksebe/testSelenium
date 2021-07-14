@@ -1,3 +1,4 @@
+package PageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -59,6 +60,7 @@ public class SignInPageObject extends PageObject {
 
     }
     public void fillUsernameField(){
+        usernameField.clear();
         usernameField.sendKeys("vladut.antal@youngculture.com");
     }
 
@@ -67,6 +69,7 @@ public class SignInPageObject extends PageObject {
     }
 
     public void fillPasswordField(){
+        passwordField.clear();
         passwordField.sendKeys("Francisc1234");
     }
 

@@ -1,3 +1,5 @@
+import PageObjects.*;
+import helpers.ScrollHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,7 +67,7 @@ public class CheckoutFunctionTest {
             homePageObject.clickOnStoreButton();
             Thread.sleep(2000);
             Thread.sleep(2000);
-            storePageObject.clickOnFormContinueButton();
+            storePageObject.clickOnFormContinueButton(driver,scrollHelper);
             scrollHelper.ScrollHorizontally(driver,storePageObject.getAbasButton());
             storePageObject.clickOnABASLink();
             Thread.sleep(1000);

@@ -1,3 +1,5 @@
+package PageObjects;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +33,10 @@ public class AbasProductPageObject extends PageObject{
     public WebElement getAddtoCartBtn(){
         return  firstProductAddToCartBtn;
     }
+    public WebElement getViewCartButton(){
+        return viewCartButton;
+    }
+
 
     public void clickOnViewCartBtn(){
         viewCartButton.click();

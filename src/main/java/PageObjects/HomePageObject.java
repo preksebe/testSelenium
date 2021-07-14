@@ -1,3 +1,5 @@
+package PageObjects;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +30,7 @@ public class HomePageObject extends PageObject {
     private WebElement closeCookieButton;
 
 
+
     public HomePageObject(WebDriver driver) {
         super(driver);
     }
@@ -47,6 +50,10 @@ public class HomePageObject extends PageObject {
             alertDismissButton.click();
         }
 
+    }
+
+    public WebElement getStorePageButton(){
+        return storePageButton;
     }
 
     public void clickOnStoreButton(){

@@ -1,3 +1,6 @@
+import PageObjects.HomePageObject;
+import helpers.ScrollHelper;
+import PageObjects.SignInPageObject;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
